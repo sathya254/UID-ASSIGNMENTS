@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic meta settings -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <style>
+    /* Reset default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      color: #4b3522; /* Text color */
+      background: #fff; /* Page background */
+    }
+
+    /* Remove underline from links */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      background: #131b41; /* Dark background */
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between; /* Logo left, menu right */
+      align-items: center;
+      position: sticky; /* Sticks at top when scrolling */
+      top: 0;
+    }
+
+    /* Logo styling */
+    nav .logo {
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    /* Navigation links container */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px; /* Space between links */
+    }
+
+    /* Navigation links */
+    nav ul a {
+      color: #ccc;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    /* Hover effect on nav links */
+    nav ul a:hover {
+      color: #8b7176;
+    }
+
+    /* ================= HERO SECTION ================= */
+    #hero {
+      background: linear-gradient(150deg, #524818, #16213e); /* Gradient background */
+      color: #fff;
+      padding: 250px 40px;
+      text-align: center;
+
+    }
+
+    /* Main heading */
+    #hero h1 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    /* Highlighted name */
+    #hero h1 span {
+      color: #1100c8;
+    }
+
+    /* Subtitle text */
+    #hero p {
+      font-size: 18px;
+      color: #d6d6d6;
+      margin-bottom: 30px;
+    }
+
+    /* Buttons */
+    #hero .btn {
+      background: #e3315a;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 10px;
+      font-size: 15px;
+      margin: 5px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    /* Button hover effect */
+    #hero .btn:hover {
+      background: #3697c7;
+    }
+
+    /* Outline button style */
+    #hero .btn-outline {
+      background: transparent;
+      border: 2px solid #e94560;
+      color: #e94560;
+    }
+
+    /* Outline button hover */
+    #hero .btn-outline:hover {
+      background: #e94560;
+      color: #fff;
+    }
+
+    /* ================= COMMON SECTION STYLING ================= */
+    section {
+      padding: 40px 20px;
+    }
+
+    /* Section headings */
+    section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Small underline below headings */
+    .underline {
+      width: 150px;
+      height: 5px;
+      background: #4553e9;
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    /* ================= ABOUT SECTION ================= */
+    #about {
+      background: #716e81; /* Light background */
+      padding: 150px;
+    }
+
+    /* Layout for image + text */
+    .about-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Profile image */
+    .about-content img {
+      width: 400px;
+      height: 320px;
+      border-radius: 50%; /* Circular image */
+      object-fit: cover;
+      border: 10px solid #b66400;
+    }
+
+    /* About text */
+    .about-text p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #f8f8f8;
+      margin-bottom: 12px;
+    }
+
+    /* ================= SKILLS SECTION ================= */
+    .skills-list {
+      padding: 150px;
+      display: flex;
+      flex-wrap: wrap; /* Wrap to next line */
+      gap: 20px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    #skills {
+      background-color: #041c24;
+      color: #3697c7;
+    }
+
+    /* Individual skill badge */
+    .skill {
+      background: #404044;
+      color: #ffffff;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    /* ================= PROJECTS SECTION ================= */
+    #projects {
+      background: #6d6d4c;
+      padding: 150px;
+    }
+
+    /* Grid layout for project cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Project card */
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    /* Hover lift effect */
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* Top colored area in card */
+    .card-color {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    /* Card content */
+    .card-body {
+      padding: 18px;
+    }
+
+    /* Project title */
+    .card-body h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    /* Project description */
+    .card-body p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    /* Project link */
+    .card-body a {
+      color: #e94560;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* ================= RESPONSIVE FIX FOR PROJECTS ================= */
+    /* Tablet view */
+    @media (max-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      }
+    }
+
+    /* Mobile view */
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr; /* 1 column */
+      }
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .contact-box {
+      padding: 100px;
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-box p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    /* Contact buttons */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Individual contact link */
+    .contact-links a {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    /* Hover effect */
+    .contact-links a:hover {
+      background: #e94560;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR: Contains logo and navigation links -->
+  <nav>
+    <div class="logo">K SATHYA </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION: Introduction -->
+  <section id="hero">
+    <h1>Hi, I'm <span>K SATHYA </span></h1>
+    <p>Frontend Developer &amp; UI Designer</p>
+    <a href="#projects" class="btn">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </section>
+
+  <!-- ABOUT SECTION: Personal details -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="underline"></div>
+    <div class="about-content">
+      <!-- Profile Image -->
+      <img src="C:\Users\ksath\Downloads\WhatsApp Image 2026-03-22 at 10.16.37 AM.jpeg" alt="K SATHYA" />
+      
+      <!-- About Text -->
+      <div class="about-text">
+        <p>Hello! I'm Sathya, B.Tech student specializing in Artificial Intelligence and Data Science with knowledge of programming, 
+          data structures, and web technologies. Passionate about building innovative solutions and applying technical skills to real-world problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="underline"></div>
+    <div class="skills-list">
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill"> Basics JavaScript</span>
+      <span class="skill">DSA</span>
+      <span class="skill">Git &amp; GitHub</span>
+      <span class="skill">Figma</span>
+      <span class="skill">Responsive Design</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="underline"></div>
+    <div class="projects-grid">
+
+      <!-- Project Card 1 -->
+      <div class="card">
+        <div class="card-color" style="background:#1a1a2e;">🧠</div>
+        <div class="card-body">
+          <h3>Disease-prediction</h3>
+          <p>A probability calculator using Baye's Theorem to estimate survival chances of a disease based on past hospital data.</p>
+          <a href="https://github.com/Kota-Jagadeesh/Disease-prediction">View Project →</a>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="card">
+        <div class="card-color" style="background:#16213e;">💻</div>
+        <div class="card-body">
+          <h3>QUIZ</h3>
+          <p>This project is a simple, open-source programming quiz application designed to test coding skills with a user-friendly interface.</p>
+          <a href="https://github.com/Kota-Jagadeesh/QUIZ">View Project →</a>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="card">
+        <div class="card-color" style="background:#0f3460;">📅</div>
+        <div class="card-body">
+          <h3>Student Planner App</h3>
+          <p>The Student Planner App is a mobile application built with Flutter to assist students in organizing their academic life.</p>
+          <a href="https://github.com/Kota-Jagadeesh/StudentPlanner">View Project →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="underline"></div>
+    <div class="contact-box">
+      <p>I'm open to freelance projects, job opportunities, or just a friendly chat. Feel free to reach out!</p>
+      
+      <!-- Contact Links -->
+      <div class="contact-links">
+        <a href="mailto:ksathya5535@gmail.com" target="_blank">📧 Email</a>
+        <a href="https://www.linkedin.com/in/k-sathya-0aa740334" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/sathya254" target="_blank">🐙 GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© sathya — Built with HTML &amp; CSS</p>
+  </footer>
+
+</body>
+</html>
